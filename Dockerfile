@@ -12,8 +12,8 @@ WORKDIR /var/www/html
 RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page292/grandcoffee.zip && \
     unzip grandcoffee.zip && \
     rm grandcoffee.zip && \
-    mv grandcoffee/* . && \
-    rm -r grandcoffee
+    mv html/* . && \
+    rm -r html
 
 # Expose port 80 on the container
 EXPOSE 80
