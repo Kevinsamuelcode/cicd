@@ -9,11 +9,11 @@ RUN apt-get update && \
 WORKDIR /var/www/html
 
 # Download and extract web files
-RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip && \
-    unzip photogenic.zip && \
-    rm photogenic.zip && \
-    mv photogenic/* . && \
-    rm -r photogenic
+RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page292/grandcoffee.zip && \
+    unzip grandcoffee.zip && \
+    rm grandcoffee.zip && \
+    mv grandcoffee/* . && \
+    rm -r grandcoffee
 
 # Expose port 80 on the container
 EXPOSE 80
