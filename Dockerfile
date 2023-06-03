@@ -13,7 +13,7 @@ RUN https://www.free-css.com/assets/files/free-css-templates/download/page292/lo
     unzip logistica.zip && \
     rm logistica.zip && \
     mv shipping-company-website-template/* . && \
-    rm -r shipping-company-website-template
+    #rm -r shipping-company-website-template
 
 # Expose port 80 on the container
 EXPOSE 80
