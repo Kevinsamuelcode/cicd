@@ -1,19 +1,20 @@
-FROM httpd:latest
+FROM ubuntu:latest
 
-# Install wget to download files
-RUN apt-get update && apt-get install -y wget
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y apache2 wget unzip && \
+    rm -rf /var/lib/apt/lists/*
 
-# Download the Free CSS template
-RUN wget -P /usr/local/apache2/htdocs/ \
-    https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip
+# Change directory
+WORKDIR /var/www/html
 
-# Extract the template
-RUN apt-get install -y unzip && \
-    unzip /usr/local/apache2/htdocs/photogenic.zip -d /usr/local/apache2/htdocs/ && \
-    rm /usr/local/apache2/htdocs/photogenic.zip
+# Download and extract web files
+RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip && \
+    unzip photogenic.zip && \
+    rm photogenic.zip
 
-# Expose port 80
+# Expose port 80 on the container
 EXPOSE 80
 
-# Start the Apache server
-CMD ["httpd", "-D", "FOREGROUND"]
+# Set the default application that will start when the container starts
+CMD ["apache2ctl", "-D", "FOREGROUND"]
