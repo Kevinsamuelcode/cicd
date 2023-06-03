@@ -5,13 +5,15 @@ RUN apt-get update && \
     apt-get install -y apache2 wget unzip && \
     rm -rf /var/lib/apt/lists/*
 
-# Change directory
+# Change directory to the default Apache path
 WORKDIR /var/www/html
 
 # Download and extract web files
 RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip && \
     unzip photogenic.zip && \
-    rm photogenic.zip
+    rm photogenic.zip && \
+    mv photogenic/* . && \
+    rm -r photogenic
 
 # Expose port 80 on the container
 EXPOSE 80
