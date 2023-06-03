@@ -9,11 +9,11 @@ RUN apt-get update && \
 WORKDIR /var/www/html
 
 # Download and extract web files
-RUN https://www.free-css.com/assets/files/free-css-templates/download/page292/logistica.zip && \
-    unzip logistica.zip && \
-    rm logistica.zip && \
-    mv shipping-company-website-template/* . && \
-    #rm -r shipping-company-website-template
+RUN https://www.free-css.com/assets/files/free-css-templates/download/page292/plumberz.zip && \
+    unzip plumberz.zip && \
+    rm plumberz.zip && \
+    mv free-plumbing-website-template/* . && \
+    rm -r free-plumbing-website-template
 
 # Expose port 80 on the container
 EXPOSE 80
