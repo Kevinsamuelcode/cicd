@@ -9,7 +9,7 @@ RUN apt-get update && \
 WORKDIR /var/www/html
 
 # Download and extract web files
-RUN https://www.free-css.com/assets/files/free-css-templates/download/page292/plumberz.zip && \
+RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page292/plumberz.zip && \
     unzip plumberz.zip && \
     rm plumberz.zip && \
     mv free-plumbing-website-template/* . && \
