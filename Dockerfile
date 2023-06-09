@@ -9,11 +9,11 @@ RUN apt-get update && \
 WORKDIR /var/www/html
 
 # Download and extract web files
-RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page292/grandcoffee.zip && \
-    unzip grandcoffee.zip && \
-    rm grandcoffee.zip && \
-    mv html/* . && \
-    rm -r html
+RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page291/hightech.zip && \
+    unzip hightech.zip && \
+    rm hightech.zip && \
+    mv hightech-html/* . && \
+    rm -r hightech-html
 
 # Expose port 80 on the container
 EXPOSE 80
