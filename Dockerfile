@@ -9,11 +9,11 @@ RUN apt-get update && \
 WORKDIR /var/www/html
 
 # Download and extract web files
-RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page291/hightech.zip && \
-    unzip hightech.zip && \
-    rm hightech.zip && \
-    mv hightech-html/* . && \
-    rm -r hightech-html
+RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page292/seomark.zip && \
+    unzip seomark.zip && \
+    rm seomark.zip && \
+    mv seomark-html/* . && \
+    rm -r seomark-html
 
 # Expose port 80 on the container
 EXPOSE 80
