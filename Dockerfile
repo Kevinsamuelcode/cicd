@@ -1,22 +1,24 @@
 FROM ubuntu:latest
 
 # Install dependencies
-RUN apt-get update && \
-    apt-get install -y apache2 wget unzip && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    mysql-client \
+    python3 \
+    python3-flask \
+    python3-pymysql \
+    python3-boto3
 
-# Change directory to the default Apache path
-WORKDIR /var/www/html
+# Create the /app directory
+RUN mkdir /app
 
-# Download and extract web files
-RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page292/seomark.zip && \
-    unzip seomark.zip && \
-    rm seomark.zip && \
-    mv seomark-html/* . && \
-    rm -r seomark-html
+# Set the working directory
+WORKDIR /app
 
-# Expose port 80 on the container
+# Copy specific files and directories from the host to the container
+COPY __pycache__ templates config.py EmpApp.py readme ./
+
+# Expose the desired port
 EXPOSE 80
 
-# Set the default application that will start when the container starts
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+# Set the entrypoint command to run the application
+CMD ["python3", "EmpApp.py"]
