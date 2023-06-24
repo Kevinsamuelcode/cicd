@@ -15,7 +15,7 @@ RUN mkdir /app
 WORKDIR /app
 
 # Copy specific files and directories from the host to the container
-COPY __pycache__/* templates/* config.py EmpApp.py readme ./
+COPY __pycache__/ templates/ config.py EmpApp.py readme ./
 
 # Expose the desired port
 EXPOSE 80
