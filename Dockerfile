@@ -20,7 +20,7 @@ COPY templates /app/templates
 COPY config.py EmpApp.py readme ./
 
 # Expose the desired port
-EXPOSE 80 22
+EXPOSE 80 
 
 # Set the entrypoint command to run the application
 CMD ["python3", "EmpApp.py"]
